@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+</head>
+
+<body>
+    {{>header}}
+    <div class="container">
+        <div class="block form form_search">
+            <div class="form_head row space-bet">
+                <div class="form_pet form_active">
+                    <div class="form_title">Данные питомца</div>
+                </div>
+                <div class="form_people">
+                    <div class="form_title">Данные хозяина</div>
+                </div>
+            </div>
+            <form action="/requests/registerHuman" method="get">
+                <div class="row space-bet baseline wrap">
+                    <div class="mw100">
+                        <div class="form-row">
+                            <div class="title_form">Тип питомца</div>
+                            <select name="city" id="city-select" class="input-data">
+                                <option value="">Введие тип</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                                <option value="hamster">Hamster</option>
+                                <option value="parrot">Parrot</option>
+                                <option value="spider">Spider</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Имя питомца</div>
+                            <div class="input-data">
+                                <input type="text" placeholder="Введите имя">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Причина поисков </div>
+                            <div class="input-data">
+                                <input type="text" placeholder="Введите причину">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Количество мл крови</div>
+                            <select name="city" id="city-select" class="input-data">
+                                <option value="">Введие кол-во</option>
+                                <option value="dog">200</option>
+                                <option value="cat">300</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Количество доноров</div>
+                            <div class="input-data row">
+                                <img src="/img/circleMin (1).svg" alt="">
+                                <div class="count">10</div>
+                                <img src="/img/pkusmin.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mw100">
+                        <div class="form-row">
+                            <div class="title_form">Укажите группу крови питомца</div>
+                            <div class="small_text"> Выберите одну или несколько необходимых групп крови.
+                                В случае если подходит любая группа крови - выберите все</div>
+                            <select name="city" id="city-select" class="input-data">
+                                <option value="">Не указано</option>
+                                <option value="dog">200</option>
+                                <option value="cat">300</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Дата окончания поиска донора</div>
+                            <div class="input-data">
+                                <input type="text" placeholder="Выберите дату">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Город</div>
+                            <select name="city" id="city-select" class="input-data">
+                                <option value="">Введие название</option>
+                                <option value="dog">200</option>
+                                <option value="cat">300</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Ветклиника <vet_pet>(место, куда привести питомца)</vet_pet>
+                            </div>
+                            <select name="city" id="city-select" class="input-data">
+                                <option value="">Веткиника</option>
+                                <option value="dog">200</option>
+                                <option value="cat">300</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="but_submit">
+                    <!-- <button>Следующий шаг</button> -->
+                    <input type="submit" value="Следующий шаг">
+                </div>
+            </form>
+        </div>
+        {{>footer}}
+    </div>
+</body>
+
+</html>

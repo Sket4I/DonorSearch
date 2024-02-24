@@ -1,26 +1,26 @@
 <header>
     <div class="container header wrap">
         <div class="header_mobile hidden row space-bet">
-            <a href="#">
+            <a href="/">
                 <img src="/img/logo.png" alt="logo" class="logo">
             </a>
             <div class="header_item">
                 {{#if loggedin}}
                 <button><a href="/user/logout">Выйти</a></button>
                 {{else}}
-                <button><a href="/user/login">Вход/Регистрация</a></button>
+                <button><a href="/user/login">Вход</a></button>
                 {{/if}}
             </div>
         </div>
         <div class="header-left hidden_mobile">
-            <a href="#" class="hidden_mobile">
+            <a href="/" class="hidden_mobile">
                 <img src="/img/logo.png" alt="logo" class="logo">
             </a>
             <div class="header_item">
-                <a href="https://donorsearch.org/how/">Как стать донором?</a>
+                <a href="https://donorsearch.org/how/" target="_blank">Как стать донором?</a>
             </div>
             <div class="header_item">
-                <a href="https://donorsearch.org/bloodstations/">Где сдать кровь?</a>
+                <a href="https://donorsearch.org/bloodstations/" target="_blank">Где сдать кровь?</a>
             </div>
             <div class="header_item">
                 <div class="dropdown">
@@ -109,7 +109,7 @@
                 {{#if loggedin}}
                 <button><a href="/user/logout">Выйти</a></button>
                 {{else}}
-                <button><a href="/user/login">Вход/Регистрация</a></button>
+                <button><a href="/user/login">Вход</a></button>
                 {{/if}}
             </div>
         </div>
