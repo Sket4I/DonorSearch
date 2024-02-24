@@ -49,14 +49,18 @@ export async function requestsForFirstPage(req, res) {
 
 export async function getAllRequests(req, res) {
     try {
-        const requests = await dbQuery(`select * from "donationRequests" order by "dateEndOfSearch" limit 10 offset ` + req.params.id - 1)
+        const requests = await dbQuery(`select * from "donationRequests" order by "dateEndOfSearch" limit 10 offset ` + (parseInt(req.params.id) - 1))
 
+        let citys = []
+        let bloodGorups = []
         for (const request of requests) {
             const date = new Date(request.dateEndOfSearch)
             request.dateEndOfSearch = dateformat(date, 'dd.mm.yy HH:MM')
+            citys.push({ name: request.city})
+            bloodGorups.push({ name: request.bloodGroup})
         }
 
-        return requests
+        return  { requests, citys, bloodGorups }
     } catch (error) {
         console.error(error)
     }

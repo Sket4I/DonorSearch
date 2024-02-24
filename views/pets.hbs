@@ -9,7 +9,7 @@
 <body>
     {{>header}}
 
-    <div class="container">
+    {{!-- <div class="container">
         <div class="block main-info row space-bet">
             <div class="pets row">
                 {{#each pets}}
@@ -122,7 +122,158 @@
             </div>
         </div>
         {{>footer}}
-    </div>
+    </div> --}}
+
+    <div class="container">
+        <div class="block main-info row space-bet">
+            <div class="pets row baseline wrap">
+                <div class="column w100_mobile">
+                    {{#each pets}}
+                    <div class="important_item pet">
+                        <div class="row space-bet baseline h100">
+                            <div class="top_donors_info">
+                                <div class="column space-bet">
+                                    <div class="row space-bet w100">
+                                        <div class="row">
+                                            <img src="{{petAvatar}}" alt="top_donor">
+                                            <div class="top_donors_info_pet">
+                                                <div class="type_of_pet">{{petType}}</div>
+                                                <div class="name_of_pet">{{petName}}</div>
+                                            </div>
+                                        </div>
+                                        <button><a href="#popup" class="popup-link"><img src="/img/reminder.svg" alt=""></a></button>
+                                    </div>
+                                    <div class="row space-bet w100 flex-end">
+                                        <div>
+                                            <div class="best_donor">
+                                                Лучший донор
+                                            </div>
+                                            <div class="need_donor_info_item row">
+                                                <!-- <img src="/img/blood_need_donor.svg" alt="blood"> -->
+                                                {{numberOfDonations}} {{donation}}
+                                            </div>
+                                        </div>
+                                        <div class="outline">
+                                            <button><a href="">История донаций</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                    {{/each}}
+                </div>
+                <div id="popup" class="popup">
+                    <div class="popup__body">
+                        <div class="popup__content">
+                            <div class="popup__title item_title">Напоминать о донации</div>
+                            <div class="popup__text">Мы пришлем вам уведомление, когда вы сможете снова записаться на донацию</div>
+                            <div class="popup__email">
+                                <form action="#">
+                                    <div class="row space-bet wrap">
+                                         <div class="form-row">
+                                             <div class="title_form">Почта</div>
+                                             <div class="input-data">
+                                                <input type="text" placeholder="Введите почту" required>
+                                             </div>
+                                          </div>
+                                    </div>
+                                    <div class="popup__button row space-bet">
+                                        <div class="but_submit">
+                                            <input name="submit" type="button" value="Сохранить">
+                                        </div>
+                                        <div class="outline">
+                                            <a href="#" class="close-popup">
+                                                <input name="" type="button" value="Отмена"> 
+                                            </a>
+                                        </div>
+                                    </div>
+                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pet pet_add column">
+                    Добавить донора
+                    <button><a href="/pets/register"><img src="/img/add.svg" alt=""></a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="block pet_acc">
+            <div class="row space-bet">
+                <div class="item_title">
+                    Бонусы для питомцев-доноров
+                </div>
+                <div class="more">
+                    <a href="#" class="row">
+                        Смотреть все
+                        <img src="/img/more.svg" alt="more">
+                    </a>
+                </div>
+            </div>
+            <div class="row space-bet wrap">
+                <div class="bonus">
+                    <img src="/img/bonus.png" alt="bonus">
+                    <div class="bonus-info">
+                        <div class="item_title bonus_shop">Четыре лапы</div>
+                        <div class="item_title bonus_title">Купон на 1000 рублей</div>
+                        <div class="item_title bonus_date">до 20 сентября 2024</div>
+                    </div>
+                </div>
+                <div class="bonus">
+                    <img src="/img/bonus.png" alt="bonus">
+                    <div class="bonus-info">
+                        <div class="item_title bonus_shop">Четыре лапы</div>
+                        <div class="item_title bonus_title">Купон на 1000 рублей</div>
+                        <div class="item_title bonus_date">до 20 сентября 2024</div>
+                    </div>
+                </div>
+                <div class="bonus">
+                    <img src="/img/bonus.png" alt="bonus">
+                    <div class="bonus-info">
+                        <div class="item_title bonus_shop">Четыре лапы</div>
+                        <div class="item_title bonus_title">Купон на 1000 рублей</div>
+                        <div class="item_title bonus_date">до 20 сентября 2024</div>
+                    </div>
+                </div>
+                <div class="bonus">
+                    <img src="/img/bonus.png" alt="bonus">
+                    <div class="bonus-info">
+                        <div class="item_title bonus_shop">Четыре лапы</div>
+                        <div class="item_title bonus_title">Купон на 1000 рублей</div>
+                        <div class="item_title bonus_date">до 20 сентября 2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="row space-bet">
+                <div class="item_title">
+                    Мои донации
+                </div>
+                <div class="more">
+                    <a href="#" class="row">
+                        Смотреть все
+                        <img src="/img/more.svg" alt="more">
+                    </a>
+                </div>
+            </div>
+            <div class="form my_donation">
+                <div class="item_title">
+                    Добавить донацию
+                </div>        
+                <div class="reference">
+                    <div class="banner_button">
+                        <button><a href="">Загрузить справку</a></button>
+                    </div>
+                </div>
+                <div class="item_desc">
+                    Загрузите одну или несколько донаций, чтобы получить доступ к специальным предложениям и бонусам
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>

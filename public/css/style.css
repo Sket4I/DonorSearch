@@ -44,6 +44,10 @@
     display: flex;
     flex-direction: column;
  }
+ .wrap_desc{
+  display: flex;
+  flex-wrap: wrap;
+ }
  .space-bet{
     justify-content: space-between;
  }
@@ -74,10 +78,10 @@
     padding: 20px 0px;
     background-color: #fff;
  }
- .header_item{
+ .header_item, .dropdown-content a{
     margin-left: 20px;
     font-size: 14px;
-    font-weight: 500;
+    /* font-weight: 500; */
  }
  .header_item a:hover, .dropbtn:hover{
     color: #2b2e2f;
@@ -92,6 +96,9 @@
  .favourite a{
     color: #FF2A23;
  }
+ .favourite a:hover{
+  color: #da251e!important;
+}
  .header_item button a{
   padding: 16px;
  }
@@ -656,6 +663,15 @@ text-align: left;
 .outline input:hover,  .outline button a:hover{
     border: solid 1px #da251e;
     color: #da251e;
+    background-color: #fdecec;
+}
+.pets .need_donor_info_item{
+  font-size: 28px;
+  font-weight: 600;
+}
+.pets .top_donors_info .column{
+  align-items: flex-start;
+    height: 100%;
 }
 /* Форма "Найти донора" */
 .form_search{
@@ -711,13 +727,12 @@ text-align: left;
    /* border-bottom: 2px solid rgba(0,0,0, 0.12); */
  }
  .input {
-   border: 2px solid #B5B7BA;
-   width: Fixed (271px);
-   height: Hug (56px);
-   padding: 16px;
- 
-   display: table-cell;
-     vertical-align: middle
+    border: 2px solid #B5B7BA;
+    width: Fixed (271px);
+    height: Hug (56px);
+    padding: 16px;
+    display: table-cell;
+    vertical-align: middle
  }
  .input-data input:focus ~ label, .textarea textarea:focus ~ label,
  .input-data input:valid ~ label, .textarea textarea:valid ~ label{
@@ -826,18 +841,19 @@ text-align: left;
    .container form .form-row {
     margin: 0px;}
  }
- ::placeholder {
-   padding-left: 10PX;
-   font-family: Inter;
- font-size: 16px;
- font-weight: 400;
- line-height: 24px;
- letter-spacing: 0em;
- text-align: left;
+ ::placeholder, select .placeholder {
+    padding-left: 10PX;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #B5B7BA !important;
  }
  input, select{
    padding-left: 16PX;
-   color: #B5B7BA;
+   color: black;
  }
  select{
     appearance: none;
@@ -1544,4 +1560,38 @@ width: 270px;
 
 .margin{
   margin-top: 30px;
+}
+
+/* popup */
+.popup{
+  position: absolute;
+  /* left: 45vw; */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s ease 0s;
+}
+.popup:target{
+  opacity: 1;
+  visibility: visible;
+}
+.popup__body{
+  width: 325px;
+  height: 369px;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 24px;
+}
+.popup__title{
+  margin: 0!important;
+}
+.popup__text{
+  margin-top: 16px;
+  font-size: 14px;
+  color: #4E5355;
+}
+.popup__email form{
+  padding: 0!important;
+}
+.popup__email .but_submit input, .popup__email .outline input{
+  padding: 16px 24px!important;
 }

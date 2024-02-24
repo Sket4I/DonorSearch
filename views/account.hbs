@@ -3,12 +3,53 @@
 
 <head>
     {{>head}}
+    <link rel="stylesheet" href="/css/style_account.css">
 </head>
 
 <body>
     {{>header}}
-    {{user.fullName}}
-
+    <div class="container">
+        <div class="block main-info row space-bet">
+            <div class="pets row baseline wrap">
+                <div class="column w100_mobile">
+                    <div class="important_item pet">
+                        <div class="row space-bet baseline h100">
+                            <div class="top_donors_info">
+                                <div class="column space-bet">
+                                    <div class="row space-bet w100">
+                                        <div class="row">
+                                            <img src="/img/top_donor.png" alt="top_donor">
+                                            <div class="top_donors_info_pet">
+                                                <!-- <div class="type_of_pet">Кот</div> -->
+                                                <div class="name_of_people name_of_pet">Цепляев Илья Вячеславович</div>
+                                            </div>
+                                        </div>
+                                        <button><a href="#popup" class="popup-link"><img src="/img/reminder.svg"
+                                                    alt=""></a></button>
+                                    </div>
+                                    <div class="row space-bet w100 flex-end">
+                                        <div>
+                                            <div class="best_donor">
+                                                Лучший донор
+                                            </div>
+                                            <div class="need_donor_info_item row">
+                                                <!-- <img src="img/blood_need_donor.svg" alt="blood"> -->
+                                                30 донаций
+                                            </div>
+                                        </div>
+                                        <div class="outline">
+                                            <button><a href="">Редактировать данные</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{>footer}}
+    </div>
 </body>
 
 </html>

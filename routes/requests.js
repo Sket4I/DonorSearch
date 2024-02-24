@@ -1,10 +1,11 @@
 import express from "express"
-import { getPetData, registerRequest } from '../controllers/requests.js'
+import { getPetData, registerRequest, getAllRequests } from '../controllers/requests.js'
 
 const router = express.Router()
 
-router.get('/filter', (req, res) => {
-    res.render('filter', {user: req.cookies.user, loggedin: req.cookies.user ? true : false})
+router.get('/filter/:id', async (req, res) => {
+    const { requests, citys, bloodGorups } = await getAllRequests(req, res)
+    res.render('filter', {user: req.cookies.user, loggedin: req.cookies.user ? true : false, requests, citys, bloodGorups})
 })
 
 router.get('/registerPet', (req, res) => {
