@@ -131,6 +131,80 @@
   font-size: 11px;
   margin-left: 130px;
 }
+.admin_btn{
+  width: 300px;
+  margin-top: 60px;
+}
+.admin_btn button a{
+  padding: 16px;
+}
+.search_donor_btn{
+  background-color: #FFDFDE!important;
+  color: #FF2A23!important;
+}
+.stay_donor_btn{
+  color: #FF2A23!important;
+  border: solid 1px #FF2A23!important;
+  background-color: white!important;
+}
+.stay_donor_btn:hover{
+  border: solid 1px #da251e!important;
+    color: #da251e!important;
+    background-color: #fdecec!important;
+}
+.form_admin{
+  padding: 0!important;
+  margin-top: 32px;
+  max-width: 100%;
+  width: 450px;
+}
+.input_admin input::placeholder{
+  background: url(/img/search.svg) no-repeat;
+  padding-left: 30px;
+}
+.input_admin input{
+  width: 320px;
+  max-width: 100%;
+}
+.dropbtn_admin button{
+  font-size: 22px!important;
+  color: black!important;
+  background-color: #ffffff00;
+}
+table {
+  width: 100%;
+  border: solid 1px #E9ECEF;
+  border-radius: 4px;
+}
+table tr td{
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  padding: 25px 16px 19px;
+}
+.table_title td{
+  font-weight: 700;
+  background-color: #fff;
+}
+.application_status{
+  background-color: #E5EEFF;
+  padding: 7px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.admin_btn_choose{
+  width: 156px;
+  max-width: 100%;
+}
+.admin_btn_choose button{
+  background-color: #ffffff00;
+}
+.btn_confirm{
+  color: #0969DA;
+}
+.btn_reject{
+  color: #FF2A23;
+}
 @media  (max-width: 600px) {
   .bonus{
     width: 100%;
