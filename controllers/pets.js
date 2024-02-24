@@ -1,12 +1,11 @@
 import { dbQuery } from '../middleware/db.js'
 import { db } from '../models/index.js'
 
-
 const Pets = db.pets
 
 export async function registerDonor(req, res) {
     try {
-        const { petName, petType, breed, age, weight } = req.body
+        const { petName, petType, breed, age, weight, bloodTransfusion, bloodGroup, vaccinations } = req.body
 
         const data = {
             petName,
@@ -14,13 +13,15 @@ export async function registerDonor(req, res) {
             breed,
             age,
             weight,
-            bloodTransfusion: 'true' ? true : false,
+            bloodTransfusion: bloodTransfusion == 'true' ? true : false,
             ownerId: req.cookies.user.id,
             donor: true,
             boodCenter: null,
             numberOfDonations: 0,
             lastDonation: null,
-            petAvatar: req.file ? '/uploads/' + req.cookies.user.id + '-' + req.file.originalname : '/img/pet.png'
+            petAvatar: req.file ? '/uploads/' + req.cookies.user.id + '-' + Date.now() + '-' + req.file.originalname : '/img/pet.png',
+            bloodGroup,
+            vaccinations
         }
 
         const pet = await Pets.create(data)
@@ -38,28 +39,30 @@ export async function registerDonor(req, res) {
 }
 
 export async function updatePet(req, res) {
-    // try {
-    //     const { userObj, newData } = req.body
+    try {
+        const newData = req.body
+        console.log(newData)
+        newData.petAvatar = req.file ? '/uploads/' + req.cookies.user.id + '-' + Date.now() + '-' + req.file.originalname : '/img/pet.png'
 
-    //     const newDataObj = {}
-    //     if (newData && newData.fullName) newDataObj.fullName = newData.fullName
-    //     if (newData && newData.password) newDataObj.password = await bcrypt.hash(newData.password, 10)
-
-    //     const user = await User.update(
-    //         newDataObj,
-    //         {
-    //             where: {
-    //                 id: userObj.id
-    //             }
-    //         }
-    //     )
-    //     const newUser = {...userObj, ...newDataObj}
-    //     if (user[0] != 0) {
-    //         return res.status(200).send(newUser)
-    //     }
-    // } catch (error) {
-    //     console.error(error)
-    // }
+        const pet = await Pets.update(
+            newData,
+            {
+                where: {
+                    id: req.params.id
+                }
+            }
+        )
+        
+        const newPet = {...req.params, ...newData}
+        // console.log(newPet)
+        if (pet[0] != 0) {
+            const pets = await getUserPets(req, res)
+            res.render('petAccountSettings', {user: req.cookies.user, loggedin: true, pets, proccesPet: newPet})
+            // res.redirect('/settings/petAccount/' + req.params.id)
+        }
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 export async function getUserPets(req, res) {
@@ -89,7 +92,25 @@ export async function getUserPets(req, res) {
             }
         }
 
+        pets.sort((a, b) => {
+            return a.id - b.id
+        })
+
+        return pets
         res.render('pets', { user: req.cookies.user, loggedin: true, pets: pets })
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export async function getPetById(req, res) {
+    try {
+        const pet = Pets.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        return pet
     } catch (error) {
         console.error(error)
     }

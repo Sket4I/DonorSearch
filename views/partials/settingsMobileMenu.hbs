@@ -11,13 +11,7 @@
                 <li>Персональные данные</li>
             </a>
             <a href="#">
-                <li>Управление аккаунтом</li>
-            </a>
-            <a href="#">
                 <li>Управление заявками</li>
-            </a>
-            <a href="#">
-                <li>Карточка донора</li>
             </a>
             <a href="/settings/petAccount">
                 <li>Карточка питомца-донора</li>
@@ -29,11 +23,16 @@
                     </a>
                     <img src="/img/select.svg" alt="more">
                 </button>
-                <div class="dropdown-content">
+                {{!-- <div class="dropdown-content">
                     <a href="#">Масик</a>
                     <a href="#">Виталик</a>
                     <a href="#">Паук</a>
-                </div>
+                </div> --}}
+                <ul>
+                    {{#each pets}}
+                    <li><a href="/settings/petAccount/{{id}}">{{petName}}</a></li>
+                    {{/each}}
+                </ul>
             </div>
         </ul>
     </div>

@@ -3,14 +3,16 @@
 
 <div class="jk">
 
-    {{!-- <a href="#" class="back"><img src="/img/back.svg" alt="">Назад</a> --}}
     <a href="" class="param">Настройки</a>
     <div class="para_cl">
         <a href="/settings/account" class="param_item">Персональные данные</a>
-        <a href="" class="param_item">Управление аккаунтом </a>
         <a href="" class="param_item">Управление заявками </a>
-        <a href="" class="param_item">Карточка донора</a>
         <a href="/settings/petAccount" class="param_item">Карточка питомца-донора:</a>
+        <ul>
+            {{#each pets}}
+            <li><a href="/settings/petAccount/{{id}}">{{petName}}</a></li>
+            {{/each}}
+        </ul>
     </div>
 
 </div>

@@ -18,12 +18,11 @@
                         <div class="form-row">
                             <div class="title_form">Тип питомца</div>
                             <select name="petType" id="city-select" class="input-data">
-                                <option value="">Введие тип</option>
+                                <option value="">Введите тип</option>
                                 <option value="Собака">Собака</option>
                                 <option value="Кошка">Кошка</option>
-                                <option value="3">Hamster</option>
-                                <option value="4">Parrot</option>
-                                <option value="5">Spider</option>
+                                <option value="Кролик">Кролик</option>
+                                <option value="Обезьяна">Обезьяна</option>
                             </select>
                         </div>
                             
@@ -62,7 +61,7 @@
                         <div class="form-row">
                             <div class="title_form">Действующие прививки</div>
                             <div class="input-data">
-                               <input type="text" placeholder="Введите привики" required>
+                               <input name="vaccinations" type="text" placeholder="Введите привики" required>
                             </div>
                          </div> 
 
@@ -71,7 +70,7 @@
                         {{!-- <div class="small_text"> Выберите одну или несколько необходимых групп крови. 
                             В случае если подходит любая группа крови - выберите все</div> --}}
                             <div class="input-data">
-                               <input type="text" placeholder="Введите группу крови" required>
+                               <input name="bloodGroup" type="text" placeholder="Введите группу крови" required>
                             </div>
                         </div>
 

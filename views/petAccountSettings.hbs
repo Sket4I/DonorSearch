@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {{>head}}
-    {{!-- <link rel="stylesheet" href="/css/style2.css"> --}}
 </head>
+
 <body>
     {{>header}}
 
@@ -12,40 +13,44 @@
         {{>settingsMobileMenu}}
         <div class="cl">
             <div class="parametrs">
-                <div class="parametrs_title">ПерсонКарточка питомца-донора</div>
+                <div class="parametrs_title">Карточка питомца-донора</div>
                 <div class="form-row">
 
-                    <form class="form_pas" action="#">
+                    <form class="form_pas" action="/settings/petAccount/{{proccesPet.id}}" method="post">
                         <div class="form-row">
                             <div class="title_form">Порода питомца</div>
                             <div class="input-data">
-                                <input type="text" placeholder="Введите породу питомца" required>
+                                <input name="breed" type="text" placeholder="Введите породу питомца"
+                                    value="{{proccesPet.breed}}" required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="title_form">Имя питомца </div>
                             <div class="input-data">
-                                <input type="text" placeholder="Введите имя" required>
+                                <input name="petName" type="text" placeholder="Введите имя"
+                                    value="{{proccesPet.petName}}" required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="title_form">Возраст </div>
                             <div class="input-data">
-                                <input type="text" placeholder="Введите возраст" required>
+                                <input name="age" type="text" placeholder="Введите возраст" value="{{proccesPet.age}}"
+                                    required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="title_form">Вес </div>
                             <div class="input-data">
-                                <input type="text" placeholder="Введите вес" required>
+                                <input name="weight" type="text" placeholder="Введите вес" value="{{proccesPet.weight}}"
+                                    required>
                             </div>
                         </div>
                         <div class="but_submit moby ">
                             <!-- <button>Следующий шаг</button> -->
-                            <input name="submit" type="button" value="Сохранить изменения">
+                            <input type="submit" value="Сохранить изменения">
                         </div>
 
                 </div>
@@ -54,26 +59,29 @@
                 <div class="form-row">
                     <div class="title_form">Действующие прививки</div>
                     <div class="input-data">
-                        <input type="text" placeholder="Введите привики" required>
+                        <input name="vaccinations" type="text" placeholder="Введите привики"
+                            value="{{proccesPet.vaccinations}}" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="title_form margin">Укажите группу крови питомца</div>
-                    <div class="small_text"> Выберите одну или несколько необходимых групп крови.
-                        В случае если подходит любая группа крови - выберите все</div>
-                    <select name="city" id="city-select" class="input-data">
-                        <option value="">Введие название</option>
-                        <option value="dog">200</option>
-                        <option value="cat">300</option>
-                    </select>
+                    <div class="input-data">
+                        <input name="bloodGroup" type="text" placeholder="Введите группу крови"
+                            value="{{proccesPet.bloodGroup}}" required>
+                    </div>
                 </div>
 
                 <div class="form-row">
                     <div class="small_text margin"><b>Производилось ли переливание крови вашему питомцу?</b> </div>
                     <div class="radio">
-                        <label><input type="radio" name="e"> Да</label>
-                        <label><input type="radio" name="e"> Нет</label>
+                        {{#if proccesPet.bloodTransfusion}}
+                        <label><input type="radio" name="bloodTransfusion" value="true" checked> Да</label>
+                        <label><input type="radio" name="bloodTransfusion" value="false"> Нет</label>
+                        {{else}}
+                        <label><input type="radio" name="bloodTransfusion" value="true"> Да</label>
+                        <label><input type="radio" name="bloodTransfusion" value="false" checked> Нет</label>
+                        {{/if}}
                     </div>
                 </div>
 
@@ -81,11 +89,11 @@
                     <div class="small_text margin"> <b>Фото питомца</b> - <small_text>необязательно</small_text>
                     </div>
                     <div class="small_text red_text"> Загрузить файл (JPG, PNG)</div>
-
+                    <input type="file" name="petAvatar" accept="image/png, image/jpeg" />
                 </div>
                 <div class="but_submit mobb ">
                     <!-- <button>Следующий шаг</button> -->
-                    <input name="submit" type="button" value="Сохранить изменения">
+                    <input type="submit" value="Сохранить изменения">
                 </div>
             </div>
             </form>
@@ -95,4 +103,5 @@
         {{>footer}}
     </div>
 </body>
+
 </html>

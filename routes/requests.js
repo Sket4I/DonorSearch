@@ -10,6 +10,8 @@ router.get('/registerPet', (req, res) => {
     res.render('registerPet', {user: req.cookies.user, loggedin: true})
 })
 
+router.post('/registerPet')
+
 router.get('/registerHuman', (req, res) => {
     res.render('registerHuman', {user: req.cookies.user, loggedin: true})
 })

@@ -72,18 +72,26 @@ export async function loginUser(req, res) {
 
 export async function updateUser(req, res) {
     try {
-        const cookieUser = req.cookies.user
+        const newData = req.body
+        newData.password = await bcrypt.hash(newData.password, 10)
 
         const user = await User.update(
-            cookieUser,
+            newData,
             {
                 where: {
-                    id: cookieUser.id
+                    id: req.cookies.user.id
                 }
             }
         )
-        res.cookie('user', user, { maxAge: 1000 * 60 * 60 * 24 })
-        res.redirect('/settings/account')
+        if (user[0] != 0) {
+            const newUser = {...req.cookies.user, ...newData}
+            let token = jwt.sign({ 
+                id: newUser.id 
+            }, process.env.secretKey, { expiresIn: '1d' })
+            res.cookie('token', token, { maxAge: 1000 * 60 * 60 * 24 })
+            res.cookie('user', newUser, { maxAge: 1000 * 60 * 60 * 24 })
+            res.redirect('/settings/account')
+        }
     } catch (error) {
         console.error(error)
     }
