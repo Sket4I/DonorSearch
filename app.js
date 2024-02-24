@@ -9,6 +9,7 @@ import hbs from 'hbs'
 import cookieParser from 'cookie-parser'
 import * as userRouter from './routes/users.js'
 import * as petRouter from './routes/pets.js'
+import * as settingsRouter from './routes/settings.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -43,6 +44,7 @@ app.get('/', (req, res) => {
 
 app.use('/user', userRouter.router)
 app.use('/pets', petRouter.router)
+app.use('/settings', settingsRouter.router)
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`)

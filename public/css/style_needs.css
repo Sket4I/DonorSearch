@@ -1,0 +1,63 @@
+.needs_left{
+    width: 70%;
+}
+.needs_left .important_item{
+    width: 48%;
+}
+.needs_right .important_item{
+    width: 90%;
+}
+.filter_title{
+    font-size: 24px;
+    font-weight: 600;
+    padding: 24px;
+}
+.needs_right{
+    width: 32%;
+}
+.needs_right{
+    display: flex;
+    justify-content: flex-end;
+}
+select{
+    width: 100%;
+}
+.container form .form-row {
+    display: flex;
+    margin: 0;
+    margin-bottom: 24px;
+    width: 100%;
+}
+.title_form {
+    font-size: 16px;
+}
+input{
+    width: 100%;
+}
+.block_title{
+    margin: 0;
+}
+/* мобилка */
+@media  (max-width: 600px) {
+    .needs_left {
+        width: 100%;
+    }
+    .needs_left .important_item {
+        width: 100%;
+    }
+    .needs_right {
+        width: 0;
+    }
+    .input-data{
+        margin: 0!important;
+    }
+    .hidden_mobile{
+        visibility: hidden;
+        display: none;
+      }
+}
+@media (max-width: 700px){
+    form .form-row .input-data {
+        margin: 0!important;
+}
+}

@@ -72,24 +72,18 @@ export async function loginUser(req, res) {
 
 export async function updateUser(req, res) {
     try {
-        const { userObj, newData } = req.body
-
-        const newDataObj = {}
-        if (newData && newData.fullName) newDataObj.fullName = newData.fullName
-        if (newData && newData.password) newDataObj.password = await bcrypt.hash(newData.password, 10)
+        const cookieUser = req.cookies.user
 
         const user = await User.update(
-            newDataObj,
+            cookieUser,
             {
                 where: {
-                    id: userObj.id
+                    id: cookieUser.id
                 }
             }
         )
-        const newUser = {...userObj, ...newDataObj}
-        if (user[0] != 0) {
-            return res.status(200).send(newUser)
-        }
+        res.cookie('user', user, { maxAge: 1000 * 60 * 60 * 24 })
+        res.redirect('/settings/account')
     } catch (error) {
         console.error(error)
     }

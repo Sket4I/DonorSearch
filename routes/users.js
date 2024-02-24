@@ -1,5 +1,5 @@
 import express from "express"
-import { signup, loginUser, updateUser, findUser } from '../controllers/users.js'
+import { signup, loginUser } from '../controllers/users.js'
 import * as userAuth from '../middleware/userAuth.js'
 import { reqAuthentication, notReqAuthentication } from '../middleware/checkAuth.js'
 
@@ -16,8 +16,6 @@ router.post('/login', loginUser)
 router.get('/login', notReqAuthentication, (req, res) => {
     res.render('login')
 })
-
-router.post('/update', updateUser)
 
 router.get('/profile', (req, res) => {
     res.render('account', {user: req.cookies.user, loggedin: true})

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+</head>
+
+<body>
+    {{>header}}
+    <div class="container row_par">
+        {{>settingsMenu}}
+        {{>settingsMobileMenu}}
+        <div class="cl">
+            <div class="parametrs">
+                <div class="parametrs_title">Персональные данные</div>
+                <div class="form-row">
+                    <div class="small_text"> <b>Аватар</b>
+                        <small_text></small_text>
+                    </div>
+                    <div class="small_text red_text"> Загрузить файл (JPG, PNG)</div>
+
+                    <form class="form_pas" action="/settings/account" method="post">
+                        <div class="form-row">
+                            <div class="title_form">ФИО</div>
+                            <div class="input-data">
+                                <input type="text" placeholder="Введите ФИО" value="{{user.fullName}}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Город</div>
+                            <div class="input-data">
+                                <input type="text" placeholder="Введите город" value="{{user.city}}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Логин</div>
+                            <div class="input-data">
+                                <input type="text" placeholder="98766" value="{{user.login}}" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Пароль</div>
+                            <div class="input-data">
+                                <input type="password" placeholder="Введите новый пароль" required>
+                            </div>
+                        </div>
+                        <div class="but_submit moby">
+                            <input type="submit" value="Сохранить изменения">
+                        </div>
+
+                </div>
+            </div>
+            <div class="right_pas">
+                <div class="text_big">Выключить уведомления на время</div>
+                <div class="text_p">Выберите дату, с которой вы хотите выключить уведомления</div>
+
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" placeholder="Выберите дату" required>
+                    </div>
+                </div>
+                <div class="text_p">Выберите дату, с которой вы хотите выключить уведомления</div>
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" placeholder="Выберите дату" required>
+                    </div>
+                </div>
+                <div class="but_submit mobb">
+                    <input type="submit" value="Сохранить изменения">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        {{>footer}}
+    </div>
+</body>
+
+</html>

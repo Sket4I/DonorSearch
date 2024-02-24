@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>head}}
+</head>
+<body>
+    {{>header}}
+
+    <div class="container row_par">
+        {{>settingsMenu}}
+        {{>settingsMobileMenu}}
+        <div class="cl">
+            <div class="parametrs">
+                <div class="parametrs_title">ПерсонКарточка питомца-донора</div>
+                <div class="form-row">
+
+                    <form class="form_pas" action="#">
+                        <div class="form-row">
+                            <div class="title_form">Порода питомца</div>
+                            <div class="input-data">
+                                <input type="text" placeholder="Введите породу питомца" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Имя питомца </div>
+                            <div class="input-data">
+                                <input type="text" placeholder="Введите имя" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Возраст </div>
+                            <div class="input-data">
+                                <input type="text" placeholder="Введите возраст" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="title_form">Вес </div>
+                            <div class="input-data">
+                                <input type="text" placeholder="Введите вес" required>
+                            </div>
+                        </div>
+                        <div class="but_submit moby ">
+                            <!-- <button>Следующий шаг</button> -->
+                            <input name="submit" type="button" value="Сохранить изменения">
+                        </div>
+
+                </div>
+            </div>
+            <div class="right_pas">
+                <div class="form-row">
+                    <div class="title_form">Действующие прививки</div>
+                    <div class="input-data">
+                        <input type="text" placeholder="Введите привики" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="title_form margin">Укажите группу крови питомца</div>
+                    <div class="small_text"> Выберите одну или несколько необходимых групп крови.
+                        В случае если подходит любая группа крови - выберите все</div>
+                    <select name="city" id="city-select" class="input-data">
+                        <option value="">Введие название</option>
+                        <option value="dog">200</option>
+                        <option value="cat">300</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="small_text margin"><b>Производилось ли переливание крови вашему питомцу?</b> </div>
+                    <div class="radio">
+                        <label><input type="radio" name="e"> Да</label>
+                        <label><input type="radio" name="e"> Нет</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="small_text margin"> <b>Фото питомца</b> - <small_text>необязательно</small_text>
+                    </div>
+                    <div class="small_text red_text"> Загрузить файл (JPG, PNG)</div>
+
+                </div>
+                <div class="but_submit mobb ">
+                    <!-- <button>Следующий шаг</button> -->
+                    <input name="submit" type="button" value="Сохранить изменения">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        {{>footer}}
+    </div>
+</body>
+</html>
