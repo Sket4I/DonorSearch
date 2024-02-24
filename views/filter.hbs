@@ -19,7 +19,7 @@
                 <div class="important_item">
                     <div class="filter_title">Фильтры</div>
                     <hr>
-                    <form action="#">
+                    <form action="/requests/filter" method="post">
                         <div class="form-row">
                                 <div class="title_form">Тип питомца</div>
                                 <select name="petType" class="input-data">
@@ -99,7 +99,7 @@
                     <div class="important_item">
                         <div class="filter_title">Фильтры</div>
                         <hr>
-                        <form action="#">
+                        <form action="/requests/filter" method="post">
                             <div class="form-row">
                                 <div class="title_form">Тип питомца</div>
                                 <select name="petType" class="input-data">
@@ -112,9 +112,9 @@
                             </div>
                             <div class="form-row">
                                 <div class="title_form">Укажите группу крови питомца</div>
-                                <select name="city" class="input-data">
-                                    <option bloodGorups="">Введите группу</option>
-                                    {{#each citys}}
+                                <select name="bloodGroup" class="input-data">
+                                    <option value="">Введите группу</option>
+                                    {{#each bloodGroups}}
                                     <option value="{{name}}">{{name}}</option>
                                     {{/each}}
                                 </select>
@@ -129,11 +129,11 @@
                                 </select>
                             </div>
                             <div class="filter_but_submit">
-                                <input type="button" value="Применить">
+                                <input type="submit" value="Применить">
                             </div>
                             <br>
                             <div class="outline">
-                                <input type="button" value="Сбросить" formaction="">
+                                <input type="submit" value="Сбросить" formaction="">
                             </div>
                         </form>
                     </div>

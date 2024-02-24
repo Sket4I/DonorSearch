@@ -7,7 +7,7 @@ const Requests = db.donationRequests
 export async function getPetData(req, res) {
     try {
         const pet = req.body
-        res.render('registerHuman', {user: req.cookies.user, loggedin: true, pet: JSON.stringify(pet)})
+        res.render('registerHuman', { user: req.cookies.user, loggedin: true, pet: JSON.stringify(pet) })
     } catch (error) {
         console.error(error)
     }
@@ -49,18 +49,46 @@ export async function requestsForFirstPage(req, res) {
 
 export async function getAllRequests(req, res) {
     try {
-        const requests = await dbQuery(`select * from "donationRequests" order by "dateEndOfSearch" limit 10 offset ` + (parseInt(req.params.id) - 1))
+        const requests = await dbQuery(`select * from "donationRequests" order by "dateEndOfSearch"`)
 
         let citys = []
-        let bloodGorups = []
+        let bloodGroups = []
         for (const request of requests) {
             const date = new Date(request.dateEndOfSearch)
             request.dateEndOfSearch = dateformat(date, 'dd.mm.yy HH:MM')
-            citys.push({ name: request.city})
-            bloodGorups.push({ name: request.bloodGroup})
+            citys.push({ name: request.city })
+            bloodGroups.push({ name: request.bloodGroup })
         }
 
-        return  { requests, citys, bloodGorups }
+        const tmp = [...new Set(citys.map((o) => JSON.stringify(o)))].map((s) => JSON.parse(s))
+        const tmp2 = [...new Set(bloodGroups.map((o) => JSON.stringify(o)))].map((s) => JSON.parse(s))
+        return { requests, citys: tmp, bloodGroups: tmp2 }
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export async function filter(req, res) {
+    try {
+        const filters = req.body
+
+        let keys = []
+        for (const [key, value] of Object.entries(filters)) {
+            if (!value) delete filters[key]
+            else keys.push({ key, value })
+        }
+
+        let where = ``
+        if (keys.length > 0) where += ` where `
+        for (let i = 0; i < keys.length; i++) {
+            const element = keys[i]
+            where += `"${element.key}" = '${element.value}' `
+            if (keys[i + 1]) where += `and `
+        }
+
+        const requests = await dbQuery(`select * from "donationRequests"${where}order by "dateEndOfSearch"`)
+
+        return requests
     } catch (error) {
         console.error(error)
     }
