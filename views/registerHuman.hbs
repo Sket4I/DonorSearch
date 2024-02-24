@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {{>head}}
 </head>
+
 <body>
     {{>header}}
     <div class="container">
@@ -15,34 +17,44 @@
                     <div class="form_title">Данные хозяина</div>
                 </div>
             </div>
-            <form action="/requests/moderation" method="get">
+            <form action="/requests/moderation" method="post">
                 <div class="row space-bet wrap">
                     <div class="form-row">
                         <div class="title_form">ФИО</div>
                         <div class="input-data">
-                           <input type="text" placeholder="Введите ФИО">
+                            {{#if user}}
+                            <input name="fullName" type="text" placeholder="Введите ФИО" value="{{user.fullName}}">
+                            {{else}}
+                            <input name="fullName" type="text" placeholder="Введите ФИО">
+                            {{/if}}
                         </div>
-                     </div>
-                     <div class="form-row">
+                    </div>
+                    <div class="form-row">
                         <div class="title_form">Телефон</div>
                         <div class="input-data">
-                           <input type="text" placeholder="Введите телефон">
+                            {{#if user}}
+                            <input name="login" type="text" placeholder="Введите телефон" value="{{user.login}}">
+                            {{else}}
+                            <input name="login" type="text" placeholder="Введите телефон">
+                            {{/if}}
                         </div>
-                     </div>
-                     <div class="form-row">
-                         <div class="title_form">Почта</div>
-                         <div class="input-data">
+                    </div>
+                    <input type="hidden" name="pet" value="{{pet}}">
+                    {{!-- <div class="form-row">
+                        <div class="title_form">Почта</div>
+                        <div class="input-data">
                             <input type="text" placeholder="Введите почту">
-                         </div>
-                      </div>
+                        </div>
+                    </div> --}}
                 </div>
                 <div class="but_submit">
                     <!-- <button>Следующий шаг</button> -->
                     <input type="submit" value="Следующий шаг">
                 </div>
-             </form>
+            </form>
         </div>
         {{>footer}}
     </div>
 </body>
+
 </html>

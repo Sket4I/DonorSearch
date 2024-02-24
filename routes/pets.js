@@ -1,6 +1,7 @@
 import express from "express"
 import { registerDonor, updatePet, getUserPets } from '../controllers/pets.js'
 import multer from 'multer'
+import { reqAuthentication } from '../middleware/checkAuth.js'
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -20,7 +21,7 @@ router.get('/', async (req, res) => {
     res.render('pets', { user: req.cookies.user, loggedin: true, pets })
 })
 
-router.get('/register', (req, res) => {
+router.get('/register', reqAuthentication, (req, res) => {
     res.render('petRegisterForm', {user: req.cookies.user, loggedin: true})
 })
 
