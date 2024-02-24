@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>head}}
+</head>
+<body>
+    {{>header}}
+    <div class="container">
+        <div class="block form form_search">
+            <div class="form_head row space-bet">
+                <div class="form_pet sto form_active">
+                    <div class="form_title">Карточка питомца - донора</div>
+                </div>
+            </div>
+            <form action="/pets/register" method="post">
+                <div class="row space-bet baseline wrap">
+                    <div class="mw100">
+                        <div class="form-row">
+                            <div class="title_form">Тип питомца</div>
+                            <select name="petType" id="city-select" class="input-data">
+                                <option value="">Введие тип</option>
+                                <option value="Собака">Собака</option>
+                                <option value="Кошка">Кошка</option>
+                                <option value="3">Hamster</option>
+                                <option value="4">Parrot</option>
+                                <option value="5">Spider</option>
+                            </select>
+                        </div>
+                            
+                        <div class="form-row">
+                            <div class="title_form">Порода питомца</div>
+                            <div class="input-data">
+                               <input name="breed" type="text" placeholder="Введите породу питомца" required>
+                            </div>
+                         </div> 
+                
+                         <div class="form-row">
+                            <div class="title_form">Имя питомца</div>
+                            <div class="input-data">
+                               <input name="petName" type="text" placeholder="Введите имя" required>
+                            </div>
+                         </div> 
+                
+                         <div class="form-row">
+                            <div class="title_form">Возраст (лет)</div>
+                            <div class="input-data">
+                               <input name="age" type="text" placeholder="Введите возраст" required>
+                            </div>
+                         </div> 
+
+                         <div class="form-row">
+                            <div class="title_form">Вес (кг)</div>
+                            <div class="input-data">
+                               <input name="weight" type="text" placeholder="Введите вес" required>
+                            </div>
+                         </div> 
+    
+                        
+                    </div>
+                    <div class="mw100">
+
+                        <div class="form-row">
+                            <div class="title_form">Действующие прививки</div>
+                            <div class="input-data">
+                               <input type="text" placeholder="Введите привики" required>
+                            </div>
+                         </div> 
+
+                        <div class="form-row">
+                        <div class="title_form">Укажите группу крови питомца</div>
+                        {{!-- <div class="small_text"> Выберите одну или несколько необходимых групп крови. 
+                            В случае если подходит любая группа крови - выберите все</div> --}}
+                            <div class="input-data">
+                               <input type="text" placeholder="Введите группу крови" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="small_text"><b>Производилось ли переливание крови вашему питомцу?</b> </div>
+                                <div class="radio">
+                                <label><input type="radio" name="bloodTransfusion" value="true">Да</label>
+                                <label><input type="radio" name="bloodTransfusion" value="false">Нет</label>
+                                </div>
+                            </div>
+
+                        <div class="form-row">
+                            <div class="small_text"> <b>Фото питомца</b> - <small_text>необязательно</small_text></div>
+                            <div class="small_text red_text"> Загрузить файл (JPG, PNG)</div>
+                            <input type="file" name="petAvatar" accept="image/png, image/jpeg"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="but_submit">
+                    <input type="submit" value="Следующий шаг">
+                </div>
+             </form>
+        </div>
+        {{>footer}}
+    </div>
+</body>
+</html>

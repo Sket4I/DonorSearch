@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+</head>
+
+<body>
+    {{>header}}
+    <div class="container">
+        <div class=" block form form_auth">
+            <div class="form_auth_title row space-bet">
+                <div class="form_auth_item auth">
+                    <div class="title_auth">Вход</div>
+                    <hr>
+                </div>
+                <div class="form_auth_item reg">
+                    <div class="title_reg">Регистрация</div>
+                    <hr class="hr-active">
+                </div>
+            </div>
+            <form action="/user/signup" method="post">
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" placeholder="ФИО" name="fullName" required>
+                        <!-- Поле обязательно для заполнения -->
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" placeholder="Город" name="city" required>
+                        
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" placeholder="Логин" name="login" required>
+                        <!-- Логин может содержать только буквы латиницы, цифры и символы -->
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="password" placeholder="Пароль" name="password" required>
+                        <!-- Пароль должен содержать минимум 8 символов и состоять из цифр и букв -->
+                    </div>
+                </div>
+                <div class="auth_button">
+                    <input type="submit" value="Зарегистрироваться">
+                </div>
+            </form>
+            <hr>
+            <div class="item_desc">
+                Регистрация с помощью социальных сетей
+            </div>
+            <a href="#">
+                <img src="/img/tg.svg" alt="tg">
+            </a>
+        </div>
+        {{>footer}}
+    </div>
+</body>
+
+</html>

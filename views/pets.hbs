@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+</head>
+
+<body>
+    {{>header}}
+
+    <div class="container">
+        <div class="block main-info row space-bet">
+            <div class="pets row space-bet">
+
+                {{#each pets}}
+                    <div class="pet">
+                        <img src="/uploads/{{petAvatar}}" alt="pet">
+                        <div class="pet_name">
+                            {{petName}}
+                        </div>
+                        <div class="item_title">
+                            {{numberOfDonations}} {{donation}}
+                        </div>
+                    </div>
+                {{/each}}
+                <div class="pet pet_add">
+                    <a href="/pets/register"><img src="/img/add.png" alt="add"></a>
+                </div>
+
+                <div class="calendar">
+                    <div class="row space-bet h100">
+                        <div class="calendar_left h100 column">
+                            <div>
+                                <div class="item_title">
+                                    Напомнить о донации
+                                </div>
+                                <div class="item_desc">
+                                    Мы напомним вам, когда
+                                    в следующий раз вы можете сдать кровь
+                                </div>
+                            </div>
+                            <div>
+                                <div class="calendar_desc">
+                                    Планирование не означает запись на донацию в центр крови
+                                </div>
+                                <div class="calendar_but">
+                                    <button>Напомнить о донации</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calendar_right">
+                            <img src="/img/Calendar.png" alt="Calendar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="row space-bet">
+                <div class="item_title">
+                    Бонусы для доноров
+                </div>
+                <div class="more">
+                    <a href="#" class="row">
+                        Смотреть все
+                        <img src="/img/more.png" alt="more">
+                    </a>
+                </div>
+            </div>
+            <div class="row space-bet">
+                <div class="bonus">
+                    <img src="/img/bonus.png" alt="bonus">
+                    <div class="bonus-info">
+                        <div class="item_title bonus_title">Бонус</div>
+                        <div class="item_title bonus_title">20 марта</div>
+                    </div>
+                </div>
+                <div class="bonus">
+                    <img src="/img/bonus.png" alt="bonus">
+                    <div class="bonus-info">
+                        <div class="item_title bonus_title">Бонус</div>
+                        <div class="item_title bonus_title">20 марта</div>
+                    </div>
+                </div>
+                <div class="bonus">
+                    <img src="/img/bonus.png" alt="bonus">
+                    <div class="bonus-info">
+                        <div class="item_title bonus_title">Бонус</div>
+                        <div class="item_title bonus_title">20 марта</div>
+                    </div>
+                </div>
+                <div class="bonus">
+                    <img src="/img/bonus.png" alt="bonus">
+                    <div class="bonus-info">
+                        <div class="item_title bonus_title">Бонус</div>
+                        <div class="item_title bonus_title">20 марта</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="row space-bet">
+                <div class="item_title">
+                    Мои донации
+                </div>
+                <div class="more">
+                    <a href="#" class="row">
+                        Смотреть все
+                        <img src="/img/more.png" alt="more">
+                    </a>
+                </div>
+            </div>
+            <div class="form my_donation">
+                <div class="item_title">
+                    Добавить донацию
+                </div>
+                <div class="reference">
+                    <button>Загрузить справку</button>
+                </div>
+                <div class="item_desc">
+                    Загрузите одну или несколько донаций, чтобы получить доступ к специальным предложениям и бонусам
+                </div>
+            </div>
+        </div>
+        {{>footer}}
+    </div>
+</body>
+
+</html>

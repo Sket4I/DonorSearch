@@ -1,0 +1,97 @@
+<header>
+    <div class="container header wrap">
+        <div class="header_mobile hidden row space-bet">
+            <a href="#">
+                <img src="/img/logo.png" alt="logo" class="logo">
+            </a>
+            <div class="header_item">
+                {{#if loggedin}}
+                <button><a href="/user/logout">Выйти</a></button>
+                {{else}}
+                <button><a href="/user/login">Вход/Регистрация</a></button>
+                {{/if}}
+            </div>
+        </div>
+        <div class="header-left hidden_mobile">
+            <a href="#" class="hidden_mobile">
+                <img src="/img/logo.png" alt="logo" class="logo">
+            </a>
+            <div class="header_item">
+                <a href="#">Как стать донором?</a>
+            </div>
+            <div class="header_item">
+                <a href="#">Где сдать кровь?</a>
+            </div>
+            <div class="header_item">
+                <div class="dropdown">
+                    <button class="dropbtn row space-bet">
+                        Для питомцев
+                        <img src="/img/select.svg" alt="more">
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">О донорстве</a>
+                        <a href="#">Стать донором</a>
+                        <a href="#">Найти донора</a>
+                        <a href="#">Поиск</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header_item">
+                <div class="dropdown">
+                    <button class="dropbtn row space-bet">
+                        Ещё
+                        <img src="/img/select.svg" alt="more">
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Ссылка 1</a>
+                        <a href="#">Ссылка 2</a>
+                        <a href="#">Ссылка 3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header_item">
+                <a href="#">
+                    <img src="/img/location.svg" alt="location" class="header_icon">
+                    Все регионы
+                </a>
+            </div>
+            <div class="header_item favourite">
+                <a href="#">
+                    <img src="/img/favourite.svg" alt="favourite" class="header_icon">
+                    Помочь проекту
+                </a>
+            </div>
+            <div class="header_item hidden_mobile">
+                {{#if loggedin}}
+                <button><a href="/user/logout">Выйти</a></button>
+                {{else}}
+                <button><a href="/user/login">Вход/Регистрация</a></button>
+                {{/if}}
+            </div>
+
+        </div>
+    </div>
+
+    {{# if loggedin}}
+    <hr>
+    <div class="container header header-sec">
+        <div class="header_item">
+            <a href="/user/profile">Мой профиль</a>
+        </div>
+        <div class="header_item">
+            <a href="/pets">Мои питомцы</a>
+        </div>
+        <div class="header_item">
+            <a href="#">Мои бонусы</a>
+        </div>
+        <div class="header_item">
+            <a href="#">История донаций</a>
+        </div>
+        <div class="header_item">
+            <a href="#">Настройки</a>
+        </div>
+    </div>
+    {{/if}}
+</header>
