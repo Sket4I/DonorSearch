@@ -6,7 +6,7 @@ const Pets = db.pets
 
 export async function registerDonor(req, res) {
     try {
-        const { petName, petType, breed, age, weight, petAvatar } = req.body
+        const { petName, petType, breed, age, weight } = req.body
 
         const data = {
             petName,
@@ -20,7 +20,7 @@ export async function registerDonor(req, res) {
             boodCenter: null,
             numberOfDonations: 0,
             lastDonation: null,
-            petAvatar: req.file ? req.cookies.user.id + '-' + req.file.originalname : null
+            petAvatar: req.file ? '/uploads/' + req.cookies.user.id + '-' + req.file.originalname : '/img/pet.png'
         }
 
         const pet = await Pets.create(data)

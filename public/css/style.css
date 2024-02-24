@@ -18,16 +18,19 @@
   border: none;
  }
  .header_item button a, .block-item button, .moderation_item button, 
- .reference button, .but_submit input, .banner_button button, .auth_button input {
-    padding: 16px;
+ .reference button, .but_submit input, .banner_button button a, .auth_button input,
+ .filter_but_submit input, .outline input, .outline button{
+    padding: 16px 50px;
+    font-size: 16px;
+    font-weight: 500;
     background-color: #FF2A23;
     color: white;
     border: none;
     border-radius: 5px;
  }
  .header_item button a:hover, .block-item button:hover, 
- .reference button:hover, .banner_button button:hover,
- .auth_button input:hover{
+ .reference button:hover, .filter_but_submit input:hover,
+ .auth_button input:hover, .banner_button button a:hover{
     background-color: #da251e;
     color: white;
     border: none;
@@ -45,7 +48,7 @@
     justify-content: space-between;
  }
  .baseline{
-  align-items: baseline;
+  align-items: flex-start;
  }
  .container {
     margin: 0 auto;
@@ -89,6 +92,9 @@
  .favourite a{
     color: #FF2A23;
  }
+ .header_item button a{
+  padding: 16px;
+ }
  /* выпадающий список */
 .dropbtn, .dropbtn button{
   background-color: white;
@@ -104,10 +110,12 @@
   z-index: 1;
 }
 .dropdown-content a {
-  padding: 10px;
+  padding: 10px;  
+    background-color: white;
+    border-radius: 4px;
 }
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #F6F7F8;
 }
 .dropdown:hover .dropdown-content {display: block;}
 
@@ -131,6 +139,7 @@
     font-size: 18px;
     color: #FF2A23;
     font-weight: 500;
+    text-transform: uppercase; 
  }
  .banner_title{
     font-size: 34px;
@@ -170,6 +179,14 @@
     padding: 40px;
     width: 32%;
 }
+.important_item1{
+    background-image: url(/img/imp_bg.png);
+    background-repeat: no-repeat;
+}
+.important_item2{
+  background-image: url(/img/imp_bg2.png);
+  background-repeat: no-repeat;
+}
 .item_title{
     font-size: 24px;
     margin: 30px 0;
@@ -177,7 +194,71 @@
 }
 .item_desc{
     color: #4E5355;
-    font-weight: 600;
+    font-weight: 400;
+}
+.important .banner_button, .need_donors .banner_button{
+  margin-top: 40px;
+  text-align: center;
+}
+/* need_donors */
+.need_donors .row .block_title{
+  margin: 0;
+}
+.more-donors a{
+  margin: 0!important;
+  font-size: 20px;
+  color: #FF2A23;
+}
+.need_donors .important_item{
+  padding: 0;
+  margin-top: 40px;
+}
+.need_donor_head{
+  padding: 20px 24px;
+  border-radius: 4px 4px 40px 0px;
+  background-color: #FF2A23;
+}
+.type_of_pet, .name_of_pet{
+  color: white;
+}
+.name_of_pet{
+  font-weight: 700;
+  font-size: 24px;
+}
+.number_of_donors{
+  font-size: 16px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+.need_donor_info{
+  padding: 24px;
+}
+.need_donor_info_item {
+  padding-bottom: 24px;
+}
+.need_donor_info_item img{
+  margin-right: 8px;
+}
+.need_donor_info_button button a{
+  color: #FF2A23;
+}
+/* top donors */
+.top_donors_info_pet div{
+  color: black;
+  margin-left: 16px;
+}
+.best_donor{
+  font-size: 16px;
+  color: white;
+  background-color: #FF2A23;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 24px;
+}
+.top_donors_info .need_donor_info_item{
+  padding: 10px 0 0 0;
 }
 /* donation */
 .imposter{
@@ -187,7 +268,13 @@
     height: 100%;
 }
 ul{
-    margin-left: 20px;
+    margin-left: 40px;
+}
+.color li{
+  color: #252B2C;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
 }
 .item_donation{
     padding: 40px;
@@ -292,6 +379,9 @@ color: red;  }
   .footer_row_item {
       margin-top: 40px;
 }
+.need_donors .important_item{
+  margin-bottom: 0;
+}
 .our_partners_img{
   display: none;
 }
@@ -307,6 +397,9 @@ color: red;  }
 }
 .logo_footer {
   margin-bottom: 0px;
+}
+.header_item button a, .block-item button, .moderation_item button, .reference button, .but_submit input, .banner_button button a, .auth_button input {
+  padding: 16px;
 }
 }
 
@@ -415,7 +508,7 @@ text-align: left;
   .faq__item{
     padding: 20px;
     border-radius: 20px;
-    justify-content: space-between;
+    justify: space-between;
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -424,7 +517,7 @@ text-align: left;
     color: rgba(255,255,255,1);;
 
   } */
-  .content p{
+  .content p, .content p ul li{
     background-color: #fff;
     font-family: Inter;
     font-size: 16px;
@@ -549,7 +642,8 @@ text-align: left;
     font-weight: 600;
     margin-bottom: 28px;
 }
-.calendar_but button{
+.calendar_but button, .need_donor_info_button button,
+.outline input,  .outline button a{
     border-radius: 4px;
     border: solid 1px #FF2A23;
     background-color: white;
@@ -557,6 +651,11 @@ text-align: left;
     color: #FF2A23;
     font-size: 16px;
     width: 100%;
+}
+.calendar_but button:hover, .need_donor_info_button button:hover,
+.outline input:hover,  .outline button a:hover{
+    border: solid 1px #da251e;
+    color: #da251e;
 }
 /* Форма "Найти донора" */
 .form_search{
@@ -736,7 +835,7 @@ text-align: left;
  letter-spacing: 0em;
  text-align: left;
  }
- input[type="text"], select{
+ input, select{
    padding-left: 16PX;
    color: #B5B7BA;
  }
@@ -829,6 +928,9 @@ text-align: left;
    .block{
     margin: 50px auto;
    }
+   .footer {
+    margin-top: 60px;
+  }
    /* Header */
    .header_item {
     margin-left: 0;
@@ -853,14 +955,25 @@ text-align: left;
   height: 54%;
   padding: 20px;
 }
+.banner_desc{
+  font-size: 14px;
+}
 .banner_title {
   font-size: 24px;
   width: 300px;
 }
 .block_title {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   margin-bottom: 40px;
+}
+.more-donors a{
+  font-size: 14px;
+  text-align: right;
+}
+.important .banner_button, .need_donors .banner_button {
+  margin-top: 10px;
+  text-align: center;
 }
 /* Choose */
 .block-item {
@@ -917,7 +1030,16 @@ text-align: left;
   .banner_title {
     font-size: 20px;
   }
-
+  .logo{
+    width: 86%;
+    height: auto;
+  }
+  .important_item {
+    padding: 30px;
+  }
+  .need_donors .important_item{
+    margin-bottom: 0;
+  }
 }
 
 /* .input-data input, select {
@@ -1079,11 +1201,9 @@ label {
   cursor: pointer;
 }
 
-
-
-/* overflow-x: hidden; needed because hiding the menu on the right side is not perfect,  */
+/* бургер */
+overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
 /* } */
-
 a
 {
   text-decoration: none;
@@ -1201,26 +1321,19 @@ a:hover
   padding: 50px;
   padding-top: 125px;
   right: -214px;
-
-  
-  
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
-  
   transform-origin: 0% 0%;
   transform: translate(100%, 0);
-  
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
-
 #menu li
 {
   padding: 10px 0;
   font-size: 22px;
 }
-
 /*
  * And let's fade it in from the left
  */
@@ -1229,7 +1342,6 @@ a:hover
   transform: none;
   opacity: 1;
 }
-
 @media screen and (max-width: 768px) {
   #menu {
     transform: none;
@@ -1238,7 +1350,6 @@ a:hover
 
     transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   }
-
   .dropdown-content {
     min-width: 450px;
     padding: 20px;
@@ -1249,21 +1360,16 @@ a:hover
     margin: 10px;
   }
 }
-
 .text_mob{
   font-size: 22px;
   padding-top: 10px;
 }
-
 @media   (min-width: 592px){
   nav{
     display: none;
   }
-
-  
 }
-
-/* PARAMETRSoNE */
+/* Параметры */
 .side_bar{
   background-color: #ffffff;
   width: 35%;
@@ -1357,7 +1463,6 @@ margin-top: 32px;
 
 .parametrs{
   margin-left: 100px;
-  z-index: -1;
   margin-right: 77px;
 }
 

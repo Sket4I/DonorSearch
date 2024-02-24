@@ -51,6 +51,48 @@
             </div>
         </div>
         <div class="header-right">
+            <nav role='navigation'>
+                <div id="menuToggle">
+                    <input type="checkbox" />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <ul id="menu">
+                        <a href="#">
+                            <li>Как стать донором?</li>
+                        </a>
+                        <a href="#">
+                            <li>Где сдать кровь?</li>
+                        </a>
+                        <a href="#">
+                            <li>Для питомцев</li>
+                        </a>
+
+                        <div class="dropdown ">
+                            <button class="dropbtn text_mob row space-bet">
+                                Ещё
+                                <img src="/img/select.svg" alt="more">
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#">Ссылка 1</a>
+                                <a href="#">Ссылка 2</a>
+                                <a href="#">Ссылка 3</a>
+                            </div>
+                        </div>
+                        <div class="dropdown text_mob">
+                            <button class="dropbtn text_mob row space-bet">
+                                Для питомцев
+                                <img src="/img/select.svg" alt="more">
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#">Ссылка 1</a>
+                                <a href="#">Ссылка 2</a>
+                                <a href="#">Ссылка 3</a>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
             <div class="header_item">
                 <a href="#">
                     <img src="/img/location.svg" alt="location" class="header_icon">
@@ -70,10 +112,10 @@
                 <button><a href="/user/login">Вход/Регистрация</a></button>
                 {{/if}}
             </div>
-
         </div>
     </div>
 
+    
     {{# if loggedin}}
     <hr>
     <div class="container header header-sec">
@@ -90,9 +132,6 @@
             <a href="#">История донаций</a>
         </div>
         <div class="header_item">
-            {{!-- <form action="">
-                
-            </form> --}}
             <a href="/settings/account">Настройки</a>
         </div>
     </div>
