@@ -74,12 +74,14 @@
                 </div>
             </div>
             <div class="row space-bet wrap">
+
+                {{#each requests}}
                 <div class="important_item">
                     <div class="need_donor_head">
                         <div class="row baseline space-bet">
                             <div>
-                                <div class="type_of_pet">Кот</div>
-                                <div class="name_of_pet">Валера</div>
+                                <div class="type_of_pet">{{petType}}</div>
+                                <div class="name_of_pet">{{petName}}</div>
                             </div>
                             <div class="number_of_donors">
                                 2/9 найдено
@@ -89,81 +91,23 @@
                     <div class="need_donor_info">
                         <div class="need_donor_info_item row">
                             <img src="/img/location_need_donor.svg" alt="location">
-                            Москва
+                            {{city}}
                         </div>
                         <div class="need_donor_info_item row">
                             <img src="/img/blood_need_donor.svg" alt="blood">
-                            Любая группа крови
+                            Группа крови: {{bloodGroup}}
                         </div>
                         <div class="need_donor_info_item row">
                             <img src="/img/calendar_need_donor.svg" alt="calendar">
-                            до 24.02.2024
+                            до {{dateEndOfSearch}}
                         </div>
                         <div class="need_donor_info_button">
                             <button><a href="#">Помочь</a></button>
                         </div>
                     </div>
                 </div>
-                <div class="important_item">
-                    <div class="need_donor_head">
-                        <div class="row baseline space-bet">
-                            <div>
-                                <div class="type_of_pet">Кот</div>
-                                <div class="name_of_pet">Валера</div>
-                            </div>
-                            <div class="number_of_donors">
-                                2/9 найдено
-                            </div>
-                        </div>
-                    </div>
-                    <div class="need_donor_info">
-                        <div class="need_donor_info_item row">
-                            <img src="/img/location_need_donor.svg" alt="location">
-                            Москва
-                        </div>
-                        <div class="need_donor_info_item row">
-                            <img src="/img/blood_need_donor.svg" alt="blood">
-                            Любая группа крови
-                        </div>
-                        <div class="need_donor_info_item row">
-                            <img src="/img/calendar_need_donor.svg" alt="calendar">
-                            до 24.02.2024
-                        </div>
-                        <div class="need_donor_info_button">
-                            <button><a href="#">Помочь</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="important_item">
-                    <div class="need_donor_head">
-                        <div class="row baseline space-bet">
-                            <div>
-                                <div class="type_of_pet">Кот</div>
-                                <div class="name_of_pet">Валера</div>
-                            </div>
-                            <div class="number_of_donors">
-                                2/9 найдено
-                            </div>
-                        </div>
-                    </div>
-                    <div class="need_donor_info">
-                        <div class="need_donor_info_item row">
-                            <img src="/img/location_need_donor.svg" alt="location">
-                            Москва
-                        </div>
-                        <div class="need_donor_info_item row">
-                            <img src="/img/blood_need_donor.svg" alt="blood">
-                            Любая группа крови
-                        </div>
-                        <div class="need_donor_info_item row">
-                            <img src="/img/calendar_need_donor.svg" alt="calendar">
-                            до 24.02.2024
-                        </div>
-                        <div class="need_donor_info_button">
-                            <button><a href="#">Помочь</a></button>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
+
             </div>
             <div class="banner_button">
                 <button><a href="/requests/registerPet">Найти донора</a></button>

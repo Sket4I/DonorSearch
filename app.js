@@ -11,6 +11,7 @@ import * as userRouter from './routes/users.js'
 import * as petRouter from './routes/pets.js'
 import * as settingsRouter from './routes/settings.js'
 import * as requestsRouter from './routes/requests.js'
+import { requestsForFirstPage } from './controllers/requests.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -35,11 +36,12 @@ db.sequelize.sync({ force: false }).then(() => {
     console.log("db has been re sync")
 })
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+    const requests = await requestsForFirstPage(req, res)
     if (req.cookies.token) {
-        res.render('index', {user: req.cookies.user, loggedin: true})
+        res.render('index', {user: req.cookies.user, loggedin: true, requests})
     } else {
-        res.render('index', {user: {}, loggedin: false})
+        res.render('index', {user: {}, loggedin: false, requests})
     }
 })
 
